@@ -15,6 +15,23 @@ github_url = "https://api.github.com"
 repo_name = "personal-website-2.0"
 username = "devsrijit"
 
+"""
+The pii_entities list contains tags used by the spaCy Named Entity Recognition (NER) system to identify and classify specific types of entities in text.
+Each tag denotes a particular kind of entity that could be considered Personally Identifiable Information (PII) or sensitive information. Here's what each tag represents:
+
+PERSON: People, including fictional.
+NORP: Nationalities or religious or political groups.
+ORG: Organizations, including companies, agencies, institutions, etc.
+GPE: Geopolitical entities, such as countries, cities, states.
+LOC: Non-GPE locations, mountain ranges, bodies of water.
+DATE: Absolute or relative dates or periods.
+TIME: Times smaller than a day.
+EVENT: Named hurricanes, battles, wars, sports events, etc.
+
+These tags are too much for HCB's use case as tags like DATE, TIME, LOC, ORG and EVENT are not PII.
+Yet, in my limited testing, this complete config is triggered by Credit Card Numbers, Social Security Number, Addresses, Phone Numbers, Email Addresses, and Names. 
+So, I am going to keep this config as is.
+"""
 
 # Set up PII detection
 pii_entities = ["PERSON", "NORP", "ORG", "GPE", "LOC", "DATE", "TIME", "EVENT"]
